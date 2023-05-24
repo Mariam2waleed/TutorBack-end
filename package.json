@@ -1,7 +1,7 @@
 {
   "name": "back-end",
   "version": "1.0.0",
-  "description": " Mariam Waleed (Back-End)",
+  "description": " Mariam Waleed (Back-End) Tutor",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.20.2",
