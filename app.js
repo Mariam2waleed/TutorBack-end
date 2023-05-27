@@ -1,23 +1,23 @@
 // const http = require('http');
 
-// let port = http.createServer(function (req , res) {
+// let port1 = http.createServer(function (req , res) {
 //     console.log(" Mariam Server");
 //     res.write("From back To Mariam");
 //     res.end()
 // })
 
-// port.listen(3000, function () {
+// port1.listen(3000, function () {
 //     console.log(" Mariam Server listening on");
 // })
 
 const express = require('express');
-const productRoute = require('./route/product');
+const productRoute = require('./scr/route/product');
 const app = express();
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 const cors = require('cors');
 
-// const port = 3000;
+//// const port = 3000;
 
 mongoose.connect('mongodb+srv://mariam2waleed:mariam2waleed@cluster0.ecmg4ah.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
