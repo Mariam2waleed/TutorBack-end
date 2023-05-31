@@ -9,12 +9,13 @@
 // port1.listen(3000, function () {
 //     console.log(" Mariam Server listening on");
 // })
-
+//////////////////////////////////////////////////////////////////////
 const express = require('express');
 const productRoute = require('./scr/route/product');
 const app = express();
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var http = require('http');
 const cors = require('cors');
 
 //// const port = 3000;
@@ -34,8 +35,23 @@ var port = process.env.PORT || 8080
 app.use('/product', productRoute);
 
 
+//////////////////////////////////////////////////////////////////////
+var Server = http.createServer(app);
+var io = require('socket.io')(Server
+    // ,{cors: {origin:"*"}}
+);
+
+//Middlewre
+app.use(express.json());
+app.use(cors());
+
+io.on('connection', (socket) => {
+    console.log("Connection established IO");
+})
+//////////////////////////////////////////////////////////////////////
+
 app.listen(port, () => {
-    console.log("Mariam Server is working");
+    console.log("Mariam Server is working",port);
 })
 
 module.exports = app;
