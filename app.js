@@ -14,7 +14,7 @@
 const express = require('express');
 
 const app = express();
-const productRoute = require('./scr/route/product');
+const productRoute = require('./scr/routes/product');
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var http = require('http');
