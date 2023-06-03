@@ -19,7 +19,7 @@ const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var http = require('http');
 const cors = require('cors');
-const { log } = require('console');
+// const { log } = require('console');
 
 // // const port = 3000;
 var port = process.env.PORT || 8080
