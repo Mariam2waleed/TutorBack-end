@@ -3,6 +3,7 @@ const express = require('express');
 const dotEnv  = require("dotenv");
 dotEnv.config();
 const productRoute = require('./scr/routes/product');
+const usersRoute = require('./scr/routes/users');
 const app = express();
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -22,6 +23,7 @@ app.use([bodyParser.urlencoded({ extended: true}), express.json()])
 app.use(cors());
 
 app.use('/product', productRoute);
+app.use('/users', usersRoute);
 
 
 //////////////////////////////////////////////////////////////////////
