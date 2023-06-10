@@ -3,7 +3,7 @@ const {verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin} = require(
 
 module.exports = {
     getProduct: [
-        verifyToken, // Add token verification for all users
+        // verifyToken, // Add token verification for all users
         async (req, res, next) => {
             try {
                 const product = await PRODUCT.find();
