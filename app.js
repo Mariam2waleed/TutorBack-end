@@ -3,29 +3,29 @@ const express = require('express');
 const dotEnv  = require("dotenv");
 dotEnv.config();
 const productRoute = require('./scr/routes/product');
-const usersRoute = require('./scr/routes/users');
+// const usersRoute = require('./scr/routes/users');
+const usersRoute = require('./scr/logic/user');
+const authRoute = require('./scr/auth/auth');
 const app = express();
 const mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
-
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 const connection = mongoose.connection;
 connection.on('connected', ()=>{ console.log(" connected with clouddd")});
-connection.on('erorr', ()=>{ console.log(" error with DB")});
+connection.on('error', (err) => { console.log(`Error connecting to MongoDB: ${err}`);
+});
 
-app.use([bodyParser.urlencoded({ extended: true}), express.json()])
+app.use([bodyParser.urlencoded({ extended: true}), express.json()]);
 app.use(cors());
 
 app.use('/product', productRoute);
-app.use('/users', usersRoute);
-
-
-//////////////////////////////////////////////////////////////////////
+// app.use('/users', usersRoute);
+app.use('/user', usersRoute);
+app.use('/auth', authRoute);
 
 module.exports = app;
