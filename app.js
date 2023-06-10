@@ -11,14 +11,19 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+//   useCreateIndex: true,
 });
 const connection = mongoose.connection;
 connection.on('connected', ()=>{ console.log(" connected with clouddd")});
 connection.on('error', (err) => { console.log(`Error connecting to MongoDB: ${err}`);
 });
+
+// Set useCreateIndex option to true
+// mongoose.set('useCreateIndexs', true);
 
 app.use([bodyParser.urlencoded({ extended: true}), express.json()]);
 app.use(cors());
