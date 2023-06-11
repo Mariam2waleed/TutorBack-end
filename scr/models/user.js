@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 const { v4: uuidv4 } = require('uuid');
 
-const userSchema = new mongoose.Schema({
+///////////////////////// User //////////////////////////////////
+const UserModel = new mongoose.Schema({
   id: { type: String, default: uuidv4, unique: true },
   fname: { type: String, required: true },
   lname: { type: String, required: true },
@@ -21,7 +22,7 @@ const userSchema = new mongoose.Schema({
           return value.length === 2;
         },
         message:
-          'Coordinates must contain exactly two elements (longitude and latitude).',
+        'Coordinates must contain exactly two elements (longitude and latitude).',
       },
     },
   },
@@ -32,6 +33,7 @@ const userSchema = new mongoose.Schema({
   isAdmin: { type: Boolean, default: true }
 });
 
+///////////////////////// User Validation //////////////////////////////////
 function userValidate(user) {
   const schema = Joi.object({
     fname: Joi.string().required(),
@@ -53,7 +55,26 @@ function userValidate(user) {
   return schema.validate(user);
 }
 
+///////////////////////// Teacher //////////////////////////////////
+const TeacherModel = new mongoose.Schema({
+  state: { type: Schema.Types.ObjectId, required: true, ref: 'Subject' },
+  user: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
+  rating: { type: Number },
+  certificate: [{ type: String }],
+})
+
+///////////////////////// Student //////////////////////////////////
+const StudentModel = new mongoose.Schema({
+
+})
+
+
+
+
 module.exports = {
-  User: mongoose.model('User', userSchema),
+  User: mongoose.model('User', UserModel),
   userValidate: userValidate,
+
+  Teacher: mongoose.model('Teacher', TeacherModel),
+  Student: mongoose.model('Student', StudentModel),
 };
