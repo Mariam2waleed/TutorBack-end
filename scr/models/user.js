@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 
 ///////////////////////// User //////////////////////////////////
 const UserModel = new mongoose.Schema({
-  id: { type: String, default: uuidv4, unique: true },
+  // id: { type: String, default: uuidv4, unique: true },
   fname: { type: String, required: true },
   lname: { type: String, required: true },
   email: { type: String, required: true, unique: true, minlength: 5,  maxlength: 255 },
@@ -56,17 +56,17 @@ function userValidate(user) {
 }
 
 ///////////////////////// Teacher //////////////////////////////////
-const TeacherModel = new mongoose.Schema({
-  state: { type: Schema.Types.ObjectId, required: true, ref: 'Subject' },
-  user: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
-  rating: { type: Number },
-  certificate: [{ type: String }],
-})
+// const TeacherModel = new mongoose.Schema({
+//   state: { type: Schema.Types.ObjectId, required: true, ref: 'Subject' },
+//   user: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
+//   rating: { type: Number },
+//   certificate: [{ type: String }],
+// })
 
 ///////////////////////// Student //////////////////////////////////
-const StudentModel = new mongoose.Schema({
+// const StudentModel = new mongoose.Schema({
 
-})
+// })
 
 
 
@@ -75,6 +75,6 @@ module.exports = {
   User: mongoose.model('User', UserModel),
   userValidate: userValidate,
 
-  Teacher: mongoose.model('Teacher', TeacherModel),
-  Student: mongoose.model('Student', StudentModel),
+  // Teacher: mongoose.model('Teacher', TeacherModel),
+  // Student: mongoose.model('Student', StudentModel),
 };
