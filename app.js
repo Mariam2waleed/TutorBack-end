@@ -33,5 +33,5 @@ app.use('/product', productRoute);
 app.use('/user', usersRoute);
 app.use('/auth', authRoute);
 ////////////////////////////////
-app.use('/contactus', contactusRoute);
+// app.use('/contactus', contactusRoute);
 module.exports = app;
