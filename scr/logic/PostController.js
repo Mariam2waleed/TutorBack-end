@@ -1,5 +1,5 @@
 const Post = require("../models/Post");
-const base = require("../base46_helper");
+const base64 = require('base64-js');
 
 exports.SavePost = (req, res, next) => {
     const teacher_id = req.body.teacher_id;
