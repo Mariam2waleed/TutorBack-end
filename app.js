@@ -11,6 +11,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const contactusRoute = require("./scr/routes/contactus");
+const postRoutes = require("./scr/routes/posts");
+const chatRoutes = require("./scr/routes/chat");
 
 
 
@@ -34,5 +36,7 @@ app.use('/product', productRoute);
 app.use('/user', usersRoute);
 app.use('/auth', authRoute);
 app.use('/contactus', contactusRoute);
+app.use('/posts', postRoutes);
+app.use('/chat', chatRoutes);
 ////////////////////////////////
 module.exports = app;
