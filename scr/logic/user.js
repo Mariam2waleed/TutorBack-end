@@ -13,7 +13,7 @@ const {
 const router = require("express").Router();
 
 // UPDATE
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", verifyTokenAndAuthorization, async (req, res) => {
   if (req.body.password) {
     req.body.password = CryptoJS.AES.encrypt(
       req.body.password,
@@ -46,7 +46,7 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 // GET USER
-router.get("/find/:id", async (req, res) => {
+router.get("/find/:id", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     const { password, ...others } = user._doc;
