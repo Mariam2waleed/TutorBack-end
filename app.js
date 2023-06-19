@@ -10,6 +10,8 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const contactusRoute = require("./scr/routes/contactus");
+
 
 
 mongoose.connect(process.env.MONGO_URL, {
@@ -29,9 +31,8 @@ app.use([bodyParser.urlencoded({ extended: true}), express.json()]);
 app.use(cors());
 
 app.use('/product', productRoute);
-// app.use('/users', usersRoute);
 app.use('/user', usersRoute);
 app.use('/auth', authRoute);
+app.use('/contactus', contactusRoute);
 ////////////////////////////////
-// app.use('/contactus', contactusRoute);
 module.exports = app;

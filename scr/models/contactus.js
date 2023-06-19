@@ -1,11 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-
-const ContactUS = new mongoose.Schema({
+const ContactUSSchema = new mongoose.Schema(
+  {
     name: String,
     email: String,
     message: String,
-  });
+  },
+  {
+    timestamps: true,
+  }
+);
 
-
-  module.exports = mongoose.model('ContactUS', ContactUS);
+module.exports = mongoose.model("ContactUS", ContactUSSchema);
