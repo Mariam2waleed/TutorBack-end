@@ -1,7 +1,7 @@
 const ChatRoom = require("../models/ChatRoom");
 const ChatMessage = require("../models/ChatMessage");
 
-export const SendMessage = async (req, res) => {
+module.exports.SendMessage = async (req, res) => {
     let chat_id = req.body.chat_id;
     if(!chat_id){
         const newChatRoom = new ChatRoom({
@@ -35,7 +35,8 @@ export const SendMessage = async (req, res) => {
         });
     }
 };
-export const getChatRoomOfUser = async (req, res) => {
+
+module.exports.getChatRoomOfUser = async (req, res) => {
     const user_id = req.params.userId;
     try {
         const chatRoom = await ChatRoom.find({
@@ -49,7 +50,7 @@ export const getChatRoomOfUser = async (req, res) => {
     }
 };
 
-export const getChatMessages = async (req, res) => {
+module.exports.getChatMessages = async (req, res) => {
     try {
         const messages = await ChatMessage.find({
             chat_id: req.params.chatId,
