@@ -30,7 +30,7 @@ const UserModel = new mongoose.Schema({
   profileImage: { type: String },
   phone_number: { type: Number, required: true, minlength: 11 },
   jwtToken: { type: String },
-  isAdmin: { type: Boolean, default: true }
+  isAdmin: { type: Boolean, default: false }
 });
 
 ///////////////////////// User Validation //////////////////////////////////
