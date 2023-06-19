@@ -2,7 +2,12 @@ const express = require("express");
 const router = express.Router();
 const ContactUS = require('../models/contactus');
 const { User } = require('../models/user');
+const natural = require('natural');
+const Analyzer = natural.SentimentAnalyzer;
+const stemmer = natural.PorterStemmer;
+const analyzer = new Analyzer("English", stemmer, "afinn");
 
+// Define the submitForm function separately
 // Define the submitForm function separately
 const submitForm = async (req, res) => {
   try {
@@ -12,6 +17,17 @@ const submitForm = async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (!existingUser) {
       return res.status(400).json({ message: 'User not found' });
+    }
+
+    // Convert the message string into an array of words
+    const words = message.split(' ');
+
+    // Perform sentiment analysis on the message
+    const sentiment = analyzer.getSentiment(words);
+
+    // Check if the sentiment is below a certain threshold to classify it as potential spam
+    if (sentiment < -0.5) {
+      return res.status(400).json({ message: 'Potential spam detected' });
     }
 
     // Save the form data to the database
