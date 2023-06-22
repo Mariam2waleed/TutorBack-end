@@ -1,12 +1,28 @@
-const http = require('http');
-const app = require('./app');
-const initializeSocket = require('./scr/sockets/socket');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
-const port = process.env.PORT || 8080;
-const server = http.createServer(app);
+dotenv.config({ path: './.env' });
+const app = require('./app.js');
 
-initializeSocket(server); // Initialize socket.io
 
-server.listen(port, () => {
-    console.log("Mariam Server is working", port);
+//const initializeSocket = require('./sockets/socket');
+
+
+
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  //   useCreateIndex: true,
+  });
+  const connection = mongoose.connection;
+  connection.on('connected', ()=>{ console.log("DB connected")});
+  connection.on('error', (err) => { console.log(`Error connecting to MongoDB: ${err}`);
+  });
+
+const port = process.env.PORT || 3000;
+const server =app.listen(port, ()=> {
+    console.log(`App running on port ${port}...`);
 });
+
+//initializeSocket(server); // Initialize socket.io
+

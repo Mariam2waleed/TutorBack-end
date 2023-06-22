@@ -1,42 +1,41 @@
 
 const express = require('express');
-const dotEnv  = require("dotenv");
-dotEnv.config();
-const productRoute = require('./scr/routes/product');
-// const usersRoute = require('./scr/routes/users');
-const usersRoute = require('./scr/logic/user');
-const authRoute = require('./scr/auth/auth');
-const app = express();
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const contactusRoute = require("./scr/routes/contactus");
-const postRoutes = require("./scr/routes/posts");
-const chatRoutes = require("./scr/routes/chat");
 
 
 
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-//   useCreateIndex: true,
-});
-const connection = mongoose.connection;
-connection.on('connected', ()=>{ console.log(" connected with clouddd")});
-connection.on('error', (err) => { console.log(`Error connecting to MongoDB: ${err}`);
-});
+const productRoute = require('./routes/product');
+// const usersRoute = require('./scr/routes/users');
+const usersRoute = require('./controllers/user');
+const authRoute = require('./routes/auth');
+const contactusRoute = require("./routes/contactus");
+const postRoutes = require("./routes/posts");
+const chatRoutes = require("./routes/chat");
+//_________________________________________
+const tutorsRoute = require("./routes/teachers");
+const studentRoute = require("./routes/student");
 
-// Set useCreateIndex option to true
-// mongoose.set('useCreateIndexs', true);
 
+
+
+// 1) Start express app
+const app = express();
+
+// 2) MIDDLEWARES
 app.use([bodyParser.urlencoded({ extended: true}), express.json()]);
 app.use(cors());
 
+
+// 3) ROUTES
 app.use('/product', productRoute);
 app.use('/user', usersRoute);
 app.use('/auth', authRoute);
 app.use('/contactus', contactusRoute);
 app.use('/posts', postRoutes);
 app.use('/chat', chatRoutes);
-////////////////////////////////
+//__________________________
+app.use("/tutors", tutorsRoute);
+app.use("/student", studentRoute);
+
 module.exports = app;
