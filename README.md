@@ -8,7 +8,7 @@ Using:
     
 ## Important Links:
 
- #      [Tutor Documentation]([https://1drv.ms/w/s!ArKWacGpG17z1WNOkD2t3S9auumk?e=I3V9XH](https://alexuuni-my.sharepoint.com/:w:/g/personal/sim_maryamwalid3139_alexu_edu_eg/EV00UAUZFtdBlqS-QdjiA2EBIOluglKiFVc69vrhdvWDRA?e=da7Nk2))   
+ #      [Tutor Documentation](https://alexuuni-my.sharepoint.com/:w:/g/personal/sim_maryamwalid3139_alexu_edu_eg/EV00UAUZFtdBlqS-QdjiA2EBIOluglKiFVc69vrhdvWDRA?rtime=MivtVNGG20g)   
  #      [Tutor Plan](https://docs.google.com/spreadsheets/d/1smS6Ph3S-ElV21F6QldiBCxVYemYcEL-ctm2Prj-S3E/edit?usp=sharing)
  #      [Tutor Survey](https://forms.gle/jhbgBFZNcpbhyn1KA) 
  #      [Tutor Diagram](https://www.figma.com/file/ajJXif8bNaNuSU9tZP7GBA/Tutor_-Diagrams?node-id=0%3A1&t=VNyMUKmPyJfdvJJ1-1)  
