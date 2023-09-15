@@ -1,10 +1,13 @@
 ## Tutor
 
+Tutor is a new online platform that has many teachers in each subject, there is a variety of professional experts who can help you with your study needs, you choose the one that suits you best by checking its qualifications, reviews, etc
+
 Tutoring app is based on communication between student or parents and teacher.
 Using: 
        - Flutter (Front-end)
        - NodeJs (Back-end)
        - Mongodb (Database)
+Figma Xd for Design and Implemented by VScode & using Atlas
     
 ## Important Links:
 
